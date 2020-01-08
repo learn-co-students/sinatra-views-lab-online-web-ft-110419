@@ -42,7 +42,7 @@ describe App do
 
     it 'includes the current date and time' do
       if last_response.status == 200
-        expect(last_response.body).to include(Date.today.strftime("%A, %B %d, %Y"))
+        expect(last_response.body).to include(Time.now.asctime.to_s)
       elsif last_response.status = 404
         fail "Your application is not responding to GET /date. Did you create that route?"
       end
